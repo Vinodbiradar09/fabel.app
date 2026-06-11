@@ -2,13 +2,15 @@
   "name": "@fabel/api",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch --import ./src/instrument.ts src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node --import ./dist/instrument.js dist/index.js",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.14",
+    "@sentry/node": "^10.57.0",
+    "dotenv": "^17.4.2",
     "hono": "^4.12.25"
   },
   "devDependencies": {

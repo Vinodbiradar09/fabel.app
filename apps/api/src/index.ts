@@ -1,10 +1,16 @@
 import { serve } from '@hono/node-server'
+import * as Sentry from '@sentry/node'
 import { Hono } from 'hono'
 
 const app = new Hono()
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
+})
+
+app.onError((err, c) => {
+  Sentry.captureException(err)
+  return c.json({ error: 'internal_server_error' }, 500)
 })
 
 serve(
