@@ -6,4 +6,5 @@ Sentry.init({
   environment: process.env.NODE_ENV,
   release: process.env.SENTRY_RELEASE,
   tracesSampleRate: 0.1,
+  enableLogs: true,
 })
