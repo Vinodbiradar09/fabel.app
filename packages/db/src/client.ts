@@ -10,10 +10,6 @@ if (!connectionString) {
   )
 }
 
-/**
- * Long-lived Node services use a small pooled `pg` Pool against Neon's POOLED
- * (-pooler) endpoint — NOT the Neon serverless driver (that's edge/Workers only).
- */
 const pool = new Pool({ connectionString, max: 10 })
 
 export const db = drizzle(pool, { schema })
