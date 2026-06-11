@@ -32,6 +32,9 @@ importers:
       '@hono/node-server':
         specifier: ^1.19.14
         version: 1.19.14(hono@4.12.25)
+      '@sentry/hono':
+        specifier: ^10.57.0
+        version: 10.57.0(@sentry/node@10.57.0)(hono@4.12.25)
       '@sentry/node':
         specifier: ^10.57.0
         version: 10.57.0
@@ -1591,6 +1594,25 @@ packages:
   '@sentry/core@10.57.0':
     resolution: {integrity: sha512-kntItTA2kiT0YpL7encXaF6mkdZMB+y48lwj8w1wkfBpfJAC7sifdgrzLQZqmsqVNE3crg9VfufaAGA+78uFMg==}
     engines: {node: '>=18'}
+
+  '@sentry/hono@10.57.0':
+    resolution: {integrity: sha512-PKu5rklGDB1pfxM3UcSjFYQKeLZrslSR7+cO2lHhhyH+dzLftk/0eDDOAjOh2Wa39D1TSuwlS/XdCyNI0y+pZA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@cloudflare/workers-types': ^4.x
+      '@sentry/bun': 10.57.0
+      '@sentry/cloudflare': 10.57.0
+      '@sentry/node': 10.57.0
+      hono: ^4.x
+    peerDependenciesMeta:
+      '@cloudflare/workers-types':
+        optional: true
+      '@sentry/bun':
+        optional: true
+      '@sentry/cloudflare':
+        optional: true
+      '@sentry/node':
+        optional: true
 
   '@sentry/nextjs@10.57.0':
     resolution: {integrity: sha512-jRsyc387+YoOpYoxtJaL8VLzCq4I0KrIsVcZW4j3gA4LHG2nolKV4IDGrYWxEygc41Sgrtm1ZYbZAvjHMd9phQ==}
@@ -4601,6 +4623,14 @@ snapshots:
       - supports-color
 
   '@sentry/core@10.57.0': {}
+
+  '@sentry/hono@10.57.0(@sentry/node@10.57.0)(hono@4.12.25)':
+    dependencies:
+      '@opentelemetry/api': 1.9.1
+      '@sentry/core': 10.57.0
+      hono: 4.12.25
+    optionalDependencies:
+      '@sentry/node': 10.57.0
 
   '@sentry/nextjs@10.57.0(@opentelemetry/core@2.8.0(@opentelemetry/api@1.9.1))(@opentelemetry/sdk-trace-base@2.8.0(@opentelemetry/api@1.9.1))(next@16.2.0(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(webpack@5.107.2)':
     dependencies:

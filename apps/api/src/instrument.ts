@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import * as Sentry from '@sentry/node'
+import * as Sentry from '@sentry/hono/node'
 
 Sentry.init({
   dsn: process.env.SENTRY_DSN,
