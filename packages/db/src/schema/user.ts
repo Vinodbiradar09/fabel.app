@@ -1,17 +1,7 @@
-import { randomUUID } from 'node:crypto'
 import { boolean, pgTable, text, timestamp } from 'drizzle-orm/pg-core'
 
-/**
- * Minimal user table — intentionally shaped to match BetterAuth's `user` model
- * so it stays forward-compatible when BetterAuth's generated schema lands.
- *
- * This is a placeholder to establish the Neon + Drizzle + migrations pipeline.
- * The full conversation/message schema is designed separately, not here.
- */
 export const user = pgTable('user', {
-  id: text('id')
-    .primaryKey()
-    .$defaultFn(() => randomUUID()),
+  id: text('id').primaryKey(),
   name: text('name'),
   email: text('email').notNull().unique(),
   emailVerified: boolean('email_verified').notNull().default(false),
