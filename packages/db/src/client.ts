@@ -5,9 +5,7 @@ import * as schema from './schema'
 const connectionString = process.env.DATABASE_URL
 
 if (!connectionString) {
-  throw new Error(
-    'DATABASE_URL is not set — point it at the Neon POOLED (-pooler) connection string'
-  )
+  throw new Error('Missing DATABASE_URL environment variable')
 }
 
 const pool = new Pool({ connectionString, max: 10 })
