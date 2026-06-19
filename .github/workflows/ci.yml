@@ -33,4 +33,14 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/fabel_ci
+          BETTER_AUTH_SECRET: ci-build-secret-at-least-32-characters
+          BETTER_AUTH_URL: http://localhost:3000
+          NEXT_PUBLIC_APP_URL: http://localhost:3000
+          GOOGLE_CLIENT_ID: ci-google-client-id
+          GOOGLE_CLIENT_SECRET: ci-google-client-secret
+          GITHUB_CLIENT_ID: ci-github-client-id
+          GITHUB_CLIENT_SECRET: ci-github-client-secret
+          RESEND_API_KEY: re_ci_dummy
+          EMAIL_FROM: ci@example.com
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
